@@ -21,9 +21,9 @@ export default function Dashboard() {
           <header></header>
 
           <div>
-            <h4 class="font-bold text-gray-500 text-2xl mt-10 pb-2">
+            {/* <h4 class="font-bold text-gray-500 text-2xl mt-10 pb-2">
               AVAILABLE <span className="text-green-500">NFTs</span> FOR YOU
-            </h4>
+            </h4> */}
             <div class="mt-8 grid lg:grid-cols-3 gap-10">
               {/* Cards go here */}
               <div className="card">

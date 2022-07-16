@@ -3,7 +3,7 @@ import { ethers } from "ethers";
 import AuthContext from "../context/AuthContext";
 import ErrorMessage from "./ErrorMessage";
 import TxList from "./TxList";
-import LogOutBtn from "../components/auth/LogOutBtn";
+
 import "antd/dist/antd.css";
 import { message } from "antd";
 import DashNav from "../components/layout/DashNav";
