@@ -39,6 +39,7 @@ function Router() {
         <Route exact path="/faqs">
           <Faqs />
         </Route>
+
         {!loggedIn && (
           <>
             <Route path="/register">
@@ -51,6 +52,9 @@ function Router() {
         )}
         {loggedIn && (
           <>
+            <Route exact path="/dashboard">
+              <Dashboard />
+            </Route>
             <Route exact path="/transaction">
               <Navbar />
               <Transactions />
@@ -59,7 +63,6 @@ function Router() {
               <App />
             </Route>
             <Route exact path="/history">
-              
               <History />
             </Route>
             <Route exact path="/withdraw">
@@ -72,9 +75,7 @@ function Router() {
             <Route exact path="/transaction/:id/edit">
               <EditTransaction />
             </Route>
-            <Route exact path="/dashboard">
-              <Dashboard />
-            </Route>
+
             <Route exact path="/help">
               <Help />
             </Route>

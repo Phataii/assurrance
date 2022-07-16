@@ -1,13 +1,20 @@
 import React, { useContext } from "react";
 import AuthContext from "../../context/AuthContext";
 import DashNav from "../layout/DashNav";
+import {
+  FcApproval,
+  FcDebt,
+  FcCurrencyExchange,
+  FcEngineering,
+  FcMoneyTransfer,
+} from "react-icons/fc";
 export default function Dashboard() {
   const { loggedIn } = useContext(AuthContext);
   return (
     <div class="bg-gray-900 text-gray-800 h-full">
       {/* Content */}
       <div className="grid md:grid-cols-5">
-        <DashNav/>
+        <DashNav />
         {/* End Nav */}
         <main class="px-16 py-6 md:col-span-4">
           <div className="card2 h-fit w-full p-2 shadow-2xl">
@@ -26,30 +33,45 @@ export default function Dashboard() {
             </h4> */}
             <div class="mt-8 grid lg:grid-cols-3 gap-10">
               {/* Cards go here */}
-              <div className="card">
-               
-                <h1 className="text-white text-xl">CRAIG 02</h1>
-                <h1 className="text-white text-xl">+</h1>
-              </div>
+
               <div class="card hover:shadow-xl">
                 <div class="p-4">
-                  <span class="font-bold">ETHEREUM (ETH):</span>
+                  <FcMoneyTransfer />
+                  <span class="font-bold">Deposited:</span>
                   <br />
-                  <span>Bal:</span>
+                  <span>$250</span>
                 </div>
               </div>
               <div class="card hover:shadow-xl">
                 <div class="p-4">
-                  <span class="font-bold">BITCOIN (BTC):</span>
+                  <FcDebt />
+                  <span class="font-bold">Profit:</span>
                   <br />
-                  <span>Bal:</span>
+                  <span>$6500</span>
                 </div>
               </div>
               <div class="card hover:shadow-xl">
                 <div class="p-4">
-                  <span class="font-bold">TETHER (USDT):</span>
+                  <FcEngineering />
+                  <span class="font-bold">Package:</span>
                   <br />
-                  <span>Bal:</span>
+                  <span>BRONZE</span>
+                </div>
+              </div>
+              <div class="card hover:shadow-xl">
+                <div class="p-4">
+                  <FcApproval />
+                  <span class="font-bold">Bonus:</span>
+                  <br />
+                  <span> $100</span>
+                </div>
+              </div>
+              <div class="card hover:shadow-xl">
+                <div class="p-4">
+                  <FcCurrencyExchange />
+                  <span class="font-bold">withdrawn:</span>
+                  <br />
+                  <span>$0</span>
                 </div>
               </div>
             </div>
