@@ -14,7 +14,7 @@ function Navbar() {
           <div class="flex justify-between">
             <h1 class="font-bold uppercase p-4 text-white text-3xl">
               <a href="/" class="hover:text-gray-200">
-                PrimeInvestors
+                assuranceEtrade
               </a>
             </h1>
             <div
