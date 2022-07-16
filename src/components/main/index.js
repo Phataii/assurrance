@@ -32,12 +32,12 @@ export default function Landing() {
       <main onLoad={getApi}>
         <section className="md:grid grid-cols-2">
           <div className="pt-56 p-14">
-            <h1 className="text-5xl pr-5">assuranceetrade</h1>
+            <h1 className="text-5xl pr-5">assuranceEtrade</h1>
             <h2 className="text-xl mt-2">
               {" "}
               Enjoy a secured mode of transacting top tier cryptocurrencies with
               assuranceEtrade. The system is fast, secure and reliable! Kindly
-              begin to start trading.
+              click the button below to start trading.
             </h2>
             <span>
               <Link to="/register" className="font-bold">
@@ -134,8 +134,8 @@ export default function Landing() {
                 <h2>SignUp/Login</h2>
                 <FcRightDown2 />
               </div>
-              <div className="text-center shadow-2xl p-5 mx-10  flex justify-between">
-                <h2>Go to Dashboard</h2>
+              <div className="text-center shadow-2xl p-5  mx-10 flex justify-between">
+                <h2 className="ml-64">Go to Dashboard</h2>
 
                 <FcRightUp className="ml-10" />
               </div>

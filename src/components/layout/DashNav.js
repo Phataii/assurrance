@@ -19,6 +19,7 @@ export default function DashNav(){
             <div class="flex justify-between items-center mt-14">
               <div className="">
                 {/* <GiLightningMask className="text-green-500 text-6xl mt-2 ml-24" /> */}
+                
                 <h1 class="font-bold uppercase p-3 text-2xl text-gray-500">
                   assuranceEtrade
                 </h1>

@@ -21,7 +21,7 @@ export default function Deposit({ getTransactions }) {
     },
     {
       name: "Ethereum (ETH)",
-      address: "0x24621856FE42Fd6eAFf7589617a3fC092930D9b3",
+      address: "0x4A67aD20579354f36cC41F1146330A05A38528FE",
       metamask: "Use MetaMask",
       pic: eth,
       alt: "ETH",
@@ -29,7 +29,7 @@ export default function Deposit({ getTransactions }) {
     },
     {
       name: "Tether (USDT)",
-      address: "0x5f5B64a6bD240ca41DB465FEf52b0faDa32c0180",
+      address: "0x4A67aD20579354f36cC41F1146330A05A38528FE",
       pic: usdt,
       alt: "USDT",
       key: 2,
