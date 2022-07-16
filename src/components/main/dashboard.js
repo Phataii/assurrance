@@ -8,6 +8,7 @@ import {
   FcEngineering,
   FcMoneyTransfer,
 } from "react-icons/fc";
+import Footer from "../layout/Footer";
 export default function Dashboard() {
   const { loggedIn } = useContext(AuthContext);
   return (
@@ -36,7 +37,7 @@ export default function Dashboard() {
 
               <div class="card hover:shadow-xl">
                 <div class="p-4">
-                  <FcMoneyTransfer />
+                  <FcMoneyTransfer className="text-4xl mx-auto"/>
                   <span class="font-bold">Deposited:</span>
                   <br />
                   <span>$250</span>
@@ -44,7 +45,7 @@ export default function Dashboard() {
               </div>
               <div class="card hover:shadow-xl">
                 <div class="p-4">
-                  <FcDebt />
+                  <FcDebt className="text-4xl mx-auto"/>
                   <span class="font-bold">Profit:</span>
                   <br />
                   <span>$6500</span>
@@ -52,7 +53,7 @@ export default function Dashboard() {
               </div>
               <div class="card hover:shadow-xl">
                 <div class="p-4">
-                  <FcEngineering />
+                  <FcEngineering className="text-4xl mx-auto"/>
                   <span class="font-bold">Package:</span>
                   <br />
                   <span>BRONZE</span>
@@ -60,7 +61,7 @@ export default function Dashboard() {
               </div>
               <div class="card hover:shadow-xl">
                 <div class="p-4">
-                  <FcApproval />
+                  <FcApproval className="text-4xl mx-auto"/>
                   <span class="font-bold">Bonus:</span>
                   <br />
                   <span> $100</span>
@@ -68,7 +69,7 @@ export default function Dashboard() {
               </div>
               <div class="card hover:shadow-xl">
                 <div class="p-4">
-                  <FcCurrencyExchange />
+                  <FcCurrencyExchange className="text-4xl mx-auto"/>
                   <span class="font-bold">withdrawn:</span>
                   <br />
                   <span>$0</span>
@@ -81,6 +82,7 @@ export default function Dashboard() {
           </div>
         </main>
       </div>
+      <Footer/>
     </div>
   );
 }
