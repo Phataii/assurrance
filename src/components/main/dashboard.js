@@ -56,7 +56,7 @@ export default function Dashboard() {
                   <FcEngineering className="text-4xl mx-auto"/>
                   <span class="font-bold">Package:</span>
                   <br />
-                  <span>BRONZE</span>
+                  <span>SILVER</span>
                 </div>
               </div>
               <div class="card hover:shadow-xl">
