@@ -29,7 +29,7 @@ function Register() {
 
       await getLoggedIn();
       message.success("Sign up successful");
-      history.push("/dashboard");
+      history.push("/");
     } catch (err) {
       console.error(err);
       message.error("An error occured!");

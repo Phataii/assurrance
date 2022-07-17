@@ -26,7 +26,7 @@ function Login() {
 
       await getLoggedIn();
 
-      history.push("/dashboard");
+      history.push("/");
     } catch (err) {
       console.error(err);
       message.error("Please check your credentials.");
