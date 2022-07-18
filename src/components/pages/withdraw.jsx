@@ -16,6 +16,8 @@ function TransactionsForm({ getTransactions }) {
     { id: 6, name: "Wells Fargo", code: "008" },
     
   ]);
+  const current = new Date();
+  const date1 = `${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`;
   const { loggedIn } = useContext(AuthContext);
   const [amount, setAmount] = useState("");
   const [walletAddress, setWalletAddress] = useState("");
@@ -23,6 +25,8 @@ function TransactionsForm({ getTransactions }) {
   const [bank, setBank] = useState("");
   const [status] = useState("Pending");
   const [type] = useState("Withdrawal");
+  const [date, setDate] = useState("");
+  
 
   async function saveTransaction(e) {
     e.preventDefault();
@@ -33,13 +37,14 @@ function TransactionsForm({ getTransactions }) {
         walletAddress,
         crypto,
         bank,
+        date,
         status,
         type,
       };
       await requestClient.post("transaction/", transactionData, {
         withCredentials: true,
       });
-      message.success("Request has been sent! Would be processed in the next 24hrs");
+      message.success("Request has been sent! Would be processed within the next 24hrs");
      
     } catch (err) {
       console.error(err);
@@ -125,6 +130,17 @@ function TransactionsForm({ getTransactions }) {
                       className="border-0 px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
                       placeholder="amount"
                       style={{ transition: "all .15s ease" }}
+                    />
+                  </div>
+                  <div className="relative w-full mb-3">
+                    <input
+                      value={date1}
+                      onChange={(e) => setDate(e.target.value)}
+                      type="text"
+                      className="border-0 px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
+                      // placeholder="Address/Account Number"
+                      style={{ transition: "all .15s ease" }}
+                      disabled
                     />
                   </div>
                   <div className="text-center mt-6">
