@@ -140,7 +140,7 @@ function TransactionsForm({ getTransactions }) {
                       className="border-0 px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
                       // placeholder="Address/Account Number"
                       style={{ transition: "all .15s ease" }}
-                      disabled
+                      
                     />
                   </div>
                   <div className="text-center mt-6">
