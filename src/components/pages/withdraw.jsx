@@ -132,7 +132,7 @@ function TransactionsForm({ getTransactions }) {
                       style={{ transition: "all .15s ease" }}
                     />
                   </div>
-                  <div className="relative w-full mb-3">
+                  {/* <div className="relative w-full mb-3">
                     <input
                       value={date1}
                       onChange={(e) => setDate(e.target.value)}
@@ -142,7 +142,7 @@ function TransactionsForm({ getTransactions }) {
                       style={{ transition: "all .15s ease" }}
                       
                     />
-                  </div>
+                  </div> */}
                   <div className="text-center mt-6">
                     <button
                       className="bg-gray-900 text-white active:bg-gray-700 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1"
