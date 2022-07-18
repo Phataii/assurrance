@@ -177,7 +177,7 @@ export default function Landing() {
                     className="rounded-md ml-20"
                     width="60%"
                   />
-                  <h2 className="text-2xl font-bold">Melisa James</h2>
+                  <h2 className="text-2xl font-bold">Mellisa James</h2>
                   <h4 className="text-xl">Senior Account Manager</h4>
                 </span>
 
