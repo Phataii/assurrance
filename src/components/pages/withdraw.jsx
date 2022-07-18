@@ -16,8 +16,6 @@ function TransactionsForm({ getTransactions }) {
     { id: 6, name: "Wells Fargo", code: "008" },
     
   ]);
-  const current = new Date();
-  const date1 = `${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`;
   const { loggedIn } = useContext(AuthContext);
   const [amount, setAmount] = useState("");
   const [walletAddress, setWalletAddress] = useState("");
@@ -25,7 +23,7 @@ function TransactionsForm({ getTransactions }) {
   const [bank, setBank] = useState("");
   const [status] = useState("Pending");
   const [type] = useState("Withdrawal");
-  const [date, setDate] = useState("");
+  
   
 
   async function saveTransaction(e) {
@@ -37,7 +35,7 @@ function TransactionsForm({ getTransactions }) {
         walletAddress,
         crypto,
         bank,
-        date,
+        
         status,
         type,
       };
