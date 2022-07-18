@@ -20,7 +20,7 @@ function TransactionsList({ transactions }) {
                   <h2 className="font-bold">
                     Address: {item.walletAddress}
                   </h2>
-                  <h2 className="font-bold">Date: {transactions.status}</h2>
+                  <h2 className="font-bold">Date: {transactions.date}</h2>
                   <h2 className="font-bold">Status: {item.status}</h2>
                 </div>
                 
