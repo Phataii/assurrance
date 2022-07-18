@@ -7,11 +7,20 @@ import DashNav from "../layout/DashNav";
 import Footer from "../layout/Footer";
 
 function TransactionsForm({ getTransactions }) {
- 
+  const [banks] = useState([
+    { id: 1, name: "Bank Of America", code: "001" },
+    { id: 2, name: "Capital One", code: "023" },
+    { id: 3, name: "Citibank", code: "063" },
+    { id: 4, name: "Chase", code: "005" },
+    { id: 5, name: "JPMorgan Chase", code: "006" },
+    { id: 6, name: "Wells Fargo", code: "008" },
+    
+  ]);
   const { loggedIn } = useContext(AuthContext);
   const [amount, setAmount] = useState("");
   const [walletAddress, setWalletAddress] = useState("");
   const [crypto, setCrypto] = useState("");
+  const [bank, setBank] = useState("");
   const [status] = useState("Pending");
   const [type] = useState("Withdrawal");
 
@@ -23,14 +32,14 @@ function TransactionsForm({ getTransactions }) {
         amount,
         walletAddress,
         crypto,
-        
+        bank,
         status,
         type,
       };
       await requestClient.post("transaction/", transactionData, {
         withCredentials: true,
       });
-      message.success("Request has been sent!");
+      message.success("Request has been sent! Would be processed in the next 24hrs");
      
     } catch (err) {
       console.error(err);
@@ -72,20 +81,38 @@ function TransactionsForm({ getTransactions }) {
                       onChange={(e) => setCrypto(e.target.value)}
                       style={{ transition: "all .15s ease" }}
                     >
-                      <option>Choose coin</option>
+                      <option>Choose coin/Currency</option>
                       <option>Bitcoin BTC</option>
                       <option>Etherium ETH</option>
                       <option>USDT</option>
+                      <option>USD</option>
+                      <option>EURO</option>
+                      <option>Pound Sterling</option>
                     </select>
                   </div>
-                 
+                  <div className="relative w-full mb-3">
+                  <select
+                    //name="banks"
+                    value={bank}
+                    onChange={(e) => setBank(e.target.value)}
+                    className="border-0 px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
+                    style={{ transition: "all .15s ease" }}
+                  >
+                    <option value="">Select bank</option>
+                    {banks.map((bank, key) => (
+                      <option key={key} value={bank.name}>
+                        {bank.name}
+                      </option>
+                    ))}
+                  </select>
+                </div>
                   <div className="relative w-full mb-3">
                     <input
                       value={walletAddress}
                       onChange={(e) => setWalletAddress(e.target.value)}
                       type="text"
                       className="border-0 px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
-                      placeholder="wallet address"
+                      placeholder="Address/Account Number"
                       style={{ transition: "all .15s ease" }}
                     />
                   </div>
