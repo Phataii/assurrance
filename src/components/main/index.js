@@ -164,7 +164,7 @@ export default function Landing() {
                     className="rounded-md ml-20 h-72 mt-10"
                     width="60%"
                   />
-                  <h2 className="text-2xl font-bold">David Shurtliff</h2>
+                  <h2 className="text-2xl font-bold">Henry David</h2>
                   <h4 className="text-xl">Customer Rep.</h4>
                   <span className="flex justify-around px-20 p-5"></span>
                 </span>
@@ -191,7 +191,7 @@ export default function Landing() {
                     className="rounded-md ml-20 h-72 mt-10"
                     width="60%"
                   />
-                  <h2 className="text-2xl font-bold">Roger Thompson</h2>
+                  <h2 className="text-2xl font-bold">Reeves Arthur</h2>
                   <h4 className="text-xl">Chief Technology Officer</h4>
                   
                   <span className="flex justify-around px-20 p-5"></span>

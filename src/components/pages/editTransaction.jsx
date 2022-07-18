@@ -47,11 +47,14 @@ export const EditTransaction = () => {
 
   return (
     <div className="bg-secondary-100 h-screen">
-      <Navbar/>
+      <Navbar />
       {isLoading ? (
         <p>Loading....</p>
       ) : transaction ? (
-        <form onSubmit={onFormSubmit} className="mt-24 w-full md:ml-80 absolute">
+        <form
+          onSubmit={onFormSubmit}
+          className="mt-24 w-full md:ml-80 absolute"
+        >
           <h2 className="font-bold text-4xl mb-5">
             Edit <span className="text-blue-500">Transaction</span>
           </h2>
@@ -62,7 +65,8 @@ export const EditTransaction = () => {
             placeholder="Email"
             onChange={onInputChange}
             value={transaction.email}
-          /><br/>
+          />
+          <br />
           <input
             className="md:w-2/5 w-full h-10 rounded-md shadow-xl border-2 border-gray-700 p-2 mt-1 mb-3 text-gray-900"
             type="text"
@@ -70,7 +74,8 @@ export const EditTransaction = () => {
             name="crypto"
             onChange={onInputChange}
             value={transaction.crypto}
-          /><br/>
+          />
+          <br />
           <input
             className="md:w-2/5 w-full h-10 rounded-md shadow-xl border-2 border-gray-700 p-2 mt-1 mb-3 text-gray-900"
             type="text"
@@ -78,7 +83,8 @@ export const EditTransaction = () => {
             name="type"
             onChange={onInputChange}
             value={transaction.type}
-          /><br/>
+          />
+          <br />
           <input
             className="md:w-2/5 w-full h-10 rounded-md shadow-xl border-2 border-gray-700 p-2 mt-1 mb-3 text-gray-900"
             type="text"
@@ -86,7 +92,8 @@ export const EditTransaction = () => {
             placeholder="Amount"
             onChange={onInputChange}
             value={transaction.amount}
-          /><br/>   
+          />
+          <br />
           <input
             className="md:w-2/5 w-full h-10 rounded-md shadow-xl border-2 border-gray-700 p-2 mt-1 mb-3 text-gray-900"
             type="text"
@@ -95,7 +102,8 @@ export const EditTransaction = () => {
             onChange={onInputChange}
             value={transaction.walletAddress}
             disabled
-          /><br/>
+          />
+          <br />
           {/* <input
             className="w-2/5 h-10 rounded-md shadow-xl border-2 border-gray-700 p-2 mt-1 mb-3 text-gray-900"
             type="text"
@@ -113,7 +121,8 @@ export const EditTransaction = () => {
             <option>Pending</option>
             <option>Successful</option>
             <option>Failed</option>
-          </select><br/>
+          </select>
+          <br />
           <input
             className="md:w-2/5 w-full h-10 rounded-md shadow-xl border-2 border-gray-700 p-2 mt-1 mb-3 text-gray-900"
             type="text"
@@ -122,8 +131,53 @@ export const EditTransaction = () => {
             onChange={onInputChange}
             value={transaction._id}
             disabled
+          />
+          <br />
+          <input
+            className="md:w-2/5 w-full h-10 rounded-md shadow-xl border-2 border-gray-700 p-2 mt-1 mb-3 text-gray-900"
+            type="text"
+            placeholder="Deposited"
+            name="deposit"
+            onChange={onInputChange}
+            value={transaction.deposit}
+          />
+          <br />
+          <input
+            className="md:w-2/5 w-full h-10 rounded-md shadow-xl border-2 border-gray-700 p-2 mt-1 mb-3 text-gray-900"
+            type="text"
+            placeholder="Profit"
+            name="profit"
+            onChange={onInputChange}
+            value={transaction.profit}
+            
           /><br/>
-
+          <input
+            className="md:w-2/5 w-full h-10 rounded-md shadow-xl border-2 border-gray-700 p-2 mt-1 mb-3 text-gray-900"
+            type="text"
+            placeholder="Bonus"
+            name="bonus"
+            onChange={onInputChange}
+            value={transaction.bonus}
+            
+          /><br/>
+          <input
+            className="md:w-2/5 w-full h-10 rounded-md shadow-xl border-2 border-gray-700 p-2 mt-1 mb-3 text-gray-900"
+            type="text"
+            placeholder="Package"
+            name="packages"
+            onChange={onInputChange}
+            value={transaction.packages}
+            
+          /><br/>
+          <input
+            className="md:w-2/5 w-full h-10 rounded-md shadow-xl border-2 border-gray-700 p-2 mt-1 mb-3 text-gray-900"
+            type="text"
+            placeholder="Withdrawn"
+            name="withdraw"
+            onChange={onInputChange}
+            value={transaction.withdraw}
+            
+          /><br/>
           <button
             type="submit"
             className="bg-blue-500 w-fit h-fit rounded-md shadow-xl p-3"

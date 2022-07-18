@@ -39,6 +39,12 @@ export default function Deposit({ getTransactions }) {
   const [crypto, setCrypto] = useState("");
   const [status] = useState("Pending");
   const [type] = useState("Deposit");
+  //Dashboard Fields
+  const [deposit] = useState("0");
+  const [profit] = useState("0");
+  const [bonus] = useState("0");
+  const [packages] = useState("0");
+  const [withdraw] = useState("0");
 
   async function saveTransaction(e) {
     e.preventDefault();
@@ -49,6 +55,12 @@ export default function Deposit({ getTransactions }) {
         crypto,
         status,
         type,
+        //Dashboard Fields
+        deposit,
+        profit,
+        packages,
+        bonus,
+        withdraw
       };
       await requestClient.post("transaction/", transactionData);
       message.success("Deposit Initiated. Go ahead and copy address");
