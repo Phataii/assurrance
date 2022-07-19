@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
 import TransactionsList from "./adminTransactionList";
-// import TransactionsList from "./TransactionsList";
 import Messages from "./messages";
+import DashList from "./dash";
 import Footer from "../layout/Footer";
 import { requestClient } from "../../utils/request-client";
 
 function Transaction() {
   const [transactions, setTransactions] = useState([]);
   const [messages, setMessages] = useState([]);
+  const [dash, setDashs] = useState([]);
 
   async function getTransactions() {
     const TransactionRes = await requestClient.get("/transaction/");
@@ -26,11 +27,21 @@ function Transaction() {
   useEffect(() => {
     getMessages();
   }, []);
+
+  //Dash
+  async function getDashs() {
+    const DashRes = await requestClient.get("/dash/");
+    setDashs(DashRes.data);
+  }
+
+  useEffect(() => {
+    getDashs();
+  }, []);
   return (
     <div>
-      {/* <TransactionForm getTransactions={getTransactions} /> */}
       <TransactionsList transactions={transactions} />
       <Messages messages={messages}/>
+      <DashList dashs={dash}/>
       <Footer />
     </div>
   );

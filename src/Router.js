@@ -18,6 +18,7 @@ import Help from "./components/pages/help";
 import AuthContext from "./context/AuthContext";
 import Search from "./components/pages/search";
 import { EditTransaction } from "./components/pages/editTransaction";
+import { EditDash } from "./components/pages/editDash";
 import Navbar from "./components/layout/Navbar";
 function Router() {
   const { loggedIn } = useContext(AuthContext);
@@ -75,7 +76,9 @@ function Router() {
             <Route exact path="/transaction/:id/edit">
               <EditTransaction />
             </Route>
-
+            <Route exact path="/dash/:id/edit">
+              <EditDash />
+            </Route>
             <Route exact path="/help">
               <Help />
             </Route>

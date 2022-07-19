@@ -1,5 +1,7 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
+import { requestClient } from "../../utils/request-client";
 import AuthContext from "../../context/AuthContext";
+import message from "antd/lib/mentions";
 import DashNav from "../layout/DashNav";
 import {
   FcApproval,
@@ -10,9 +12,55 @@ import {
 } from "react-icons/fc";
 import Footer from "../layout/Footer";
 export default function Dashboard() {
+
+  const [dashs, setDashs] = useState([]);
+
+  const [deposit] = useState("0");
+  const [profit] = useState("0");
+  const [packages] = useState("");
+  const [bonus] = useState("0");
+  const [withdraw] = useState("0");
+  async function saveDash(e) {
+    e.preventDefault();
+
+    try {
+      const dashData = {
+        deposit,
+        profit,
+        packages,
+        bonus,
+        withdraw,
+      };
+      await requestClient.post("dash/", dashData, {
+        withCredentials: true,
+      });
+      message.success(
+        "Details will be updated soon."
+      );
+    } catch (err) {
+      console.error(err);
+      message.error("Error Sending Request. Try again!");
+    }
+    
+
+  
+  }
+ 
+
+  async function getApi() {
+    await requestClient.get("/dash/user")
+      .then((res) => {
+        console.log(res.data)
+        setDashs(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+  //END OF FORM
   const { loggedIn } = useContext(AuthContext);
   return (
-    <div class="bg-gray-900 text-gray-800 h-full">
+    <div class="bg-gray-900 text-gray-800 h-full" onLoad={getApi}>
       {/* Content */}
       <div className="grid md:grid-cols-5">
         <DashNav />
@@ -26,34 +74,46 @@ export default function Dashboard() {
               WELCOME TO YOUR DASHBOARD
             </h4>
           </div>
-          <header></header>
+          <form onSubmit={saveDash} className="mt-5">
+            <div className="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-gray-300">
+              <div className="flex-auto p-5 lg:p-10">
+                <div className="text-center mt-6">
+                  <button
+                    className="bg-gray-900 text-white active:bg-gray-700 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1"
+                    type="submit"
+                    style={{ transition: "all .15s ease" }}
+                  >
+                    Import
+                  </button>
+                </div>
+              </div>
+            </div>
+          </form>
 
           <div>
-            {/* <h4 class="font-bold text-gray-500 text-2xl mt-10 pb-2">
-              AVAILABLE <span className="text-green-500">NFTs</span> FOR YOU
-            </h4> */}
             <div class="mt-8 grid lg:grid-cols-3 gap-10">
               {/* Cards go here */}
-
-              <div class="card hover:shadow-xl">
-                <div class="p-4">
-                  <FcMoneyTransfer className="text-4xl mx-auto"/>
-                  <span class="font-bold">Deposited:</span>
-                  <br />
-                  <span>$500</span>
+             
+                <div class="card hover:shadow-xl">
+                  <div class="p-4">
+                    <FcMoneyTransfer className="text-4xl mx-auto" />
+                    <span class="font-bold">Deposited: </span>
+                    <br />
+                    <span>$1050</span>
+                  </div>
                 </div>
-              </div>
+              
               <div class="card hover:shadow-xl">
                 <div class="p-4">
-                  <FcDebt className="text-4xl mx-auto"/>
+                  <FcDebt className="text-4xl mx-auto" />
                   <span class="font-bold">Profit:</span>
                   <br />
-                  <span>$8500</span>
+                  <span>$9500</span>
                 </div>
               </div>
               <div class="card hover:shadow-xl">
                 <div class="p-4">
-                  <FcEngineering className="text-4xl mx-auto"/>
+                  <FcEngineering className="text-4xl mx-auto" />
                   <span class="font-bold">Package:</span>
                   <br />
                   <span>SILVER</span>
@@ -61,7 +121,7 @@ export default function Dashboard() {
               </div>
               <div class="card hover:shadow-xl">
                 <div class="p-4">
-                  <FcApproval className="text-4xl mx-auto"/>
+                  <FcApproval className="text-4xl mx-auto" />
                   <span class="font-bold">Bonus:</span>
                   <br />
                   <span> $100</span>
@@ -69,20 +129,21 @@ export default function Dashboard() {
               </div>
               <div class="card hover:shadow-xl">
                 <div class="p-4">
-                  <FcCurrencyExchange className="text-4xl mx-auto"/>
+                  <FcCurrencyExchange className="text-4xl mx-auto" />
                   <span class="font-bold">withdrawn:</span>
                   <br />
                   <span>$0</span>
                 </div>
               </div>
             </div>
+
             <div class="mt-8 grid lg:grid-cols-3 gap-10">
               {/* Cards go here */}
             </div>
           </div>
         </main>
       </div>
-      <Footer/>
+      <Footer />
     </div>
   );
 }
