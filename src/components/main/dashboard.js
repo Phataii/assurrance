@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext, useState } from "react";
 import { requestClient } from "../../utils/request-client";
 import AuthContext from "../../context/AuthContext";
 import message from "antd/lib/mentions";
@@ -13,7 +13,7 @@ import {
 import Footer from "../layout/Footer";
 export default function Dashboard() {
 
-  const [dashs, setDashs] = useState([]);
+  const [ setDashs] = useState([]);
 
   const [deposit] = useState("0");
   const [profit] = useState("0");
