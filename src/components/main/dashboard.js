@@ -73,7 +73,7 @@ export default function Dashboard() {
               <div className="flex-auto p-5 lg:p-10">
                 <h1>
                   Hi, We're sorry for the inactiveness of our Senior Account
-                  Manager's instagram account is facing some hack issue but
+                  Manager's instagram account as it is facing some hack issue but
                   we're definitely working on it. We'd communicate any
                   development as soon as possible! Kindly bear with us.{" "}
                 </h1>
