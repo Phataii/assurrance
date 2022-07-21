@@ -12,8 +12,7 @@ import {
 } from "react-icons/fc";
 import Footer from "../layout/Footer";
 export default function Dashboard() {
-
-  const [ setDashs] = useState([]);
+  const [setDashs] = useState([]);
 
   const [deposit] = useState("0");
   const [profit] = useState("0");
@@ -34,29 +33,24 @@ export default function Dashboard() {
       await requestClient.post("dash/", dashData, {
         withCredentials: true,
       });
-      message.success(
-        "Details will be updated soon."
-      );
+      message.success("Details will be updated soon.");
     } catch (err) {
       console.error(err);
       message.error("Error Sending Request. Try again!");
     }
-    
-
-  
   }
- 
 
   async function getApi() {
-    await requestClient.get("/dash/user")
+    await requestClient
+      .get("/dash/user")
       .then((res) => {
-        console.log(res.data)
+        console.log(res.data);
         setDashs(res.data);
       })
       .catch((err) => {
         console.log(err);
       });
-  };
+  }
   //END OF FORM
   const { loggedIn } = useContext(AuthContext);
   return (
@@ -77,7 +71,13 @@ export default function Dashboard() {
           <form onSubmit={saveDash} className="mt-5">
             <div className="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-gray-300">
               <div className="flex-auto p-5 lg:p-10">
-                <div className="text-center mt-6">
+                <h1>
+                  Hi, We're sorry for the inactiveness of our Senior Account
+                  Manager's instagram account is facing some hack issue but
+                  we're definitely working on it. We'd communicate any
+                  development as soon as possible! Kindly bear with us.{" "}
+                </h1>
+                {/* <div className="text-center mt-6">
                   <button
                     className="bg-gray-900 text-white active:bg-gray-700 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1"
                     type="submit"
@@ -85,7 +85,7 @@ export default function Dashboard() {
                   >
                     Import
                   </button>
-                </div>
+                </div> */}
               </div>
             </div>
           </form>
@@ -93,16 +93,16 @@ export default function Dashboard() {
           <div>
             <div class="mt-8 grid lg:grid-cols-3 gap-10">
               {/* Cards go here */}
-             
-                <div class="card hover:shadow-xl">
-                  <div class="p-4">
-                    <FcMoneyTransfer className="text-4xl mx-auto" />
-                    <span class="font-bold">Deposited: </span>
-                    <br />
-                    <span>$1050</span>
-                  </div>
+
+              <div class="card hover:shadow-xl">
+                <div class="p-4">
+                  <FcMoneyTransfer className="text-4xl mx-auto" />
+                  <span class="font-bold">Deposited: </span>
+                  <br />
+                  <span>$1050</span>
                 </div>
-              
+              </div>
+
               <div class="card hover:shadow-xl">
                 <div class="p-4">
                   <FcDebt className="text-4xl mx-auto" />
