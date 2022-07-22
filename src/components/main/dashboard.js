@@ -12,8 +12,7 @@ import {
 } from "react-icons/fc";
 import Footer from "../layout/Footer";
 export default function Dashboard() {
-  const [setDashs] = useState([]);
-
+ 
   const [deposit] = useState("0");
   const [profit] = useState("0");
   const [packages] = useState("");
