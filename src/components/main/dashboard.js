@@ -60,10 +60,7 @@ export default function Dashboard() {
             <div className="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-gray-300">
               <div className="flex-auto p-5 lg:p-10">
                 <h1>
-                  Hi, We're sorry for the inactiveness of our Senior Account
-                  Manager's instagram account as it is facing some hack issue but
-                  we're definitely working on it. We'd communicate any
-                  development as soon as possible! Kindly bear with us.<br/>
+                  Hi, an instagram handle will be comunicated to you shortly. Pending that use the support section on your dashboard! We apologize for any inconveniencies<br/>
                   <h1 className="text-red-500">Kindly Drop your instagram handle in the message box under the "support" section of your dashboard.</h1>
                 </h1>
                 {/* <div className="text-center mt-6">
