@@ -1,5 +1,5 @@
 import { useState } from "react";
-import axios from "axios";
+import { requestClient } from "../../utils/request-client";
 import DashNav from "../layout/DashNav";
 import Footer from "../layout/Footer";
 
@@ -16,7 +16,7 @@ export default function Help() {
         email,
         message,
       };
-      await axios.post("http://localhost:8080/message/", messageData, {
+      await requestClient.post("message/", messageData, {
         withCredentials: true,
       });
       alert("Message has been sent!");
