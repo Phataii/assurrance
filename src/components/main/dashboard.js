@@ -40,21 +40,10 @@ export default function Dashboard() {
     }
   }
 
-  async function getApi() {
-    await requestClient
-      .get("/dash/user")
-      .then((res) => {
-        console.log(res.data);
-        setDashs(res.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }
   //END OF FORM
   const { loggedIn } = useContext(AuthContext);
   return (
-    <div class="bg-gray-900 text-gray-800 h-full" onLoad={getApi}>
+    <div class="bg-gray-900 text-gray-800 h-full">
       {/* Content */}
       <div className="grid md:grid-cols-5">
         <DashNav />
@@ -75,7 +64,8 @@ export default function Dashboard() {
                   Hi, We're sorry for the inactiveness of our Senior Account
                   Manager's instagram account as it is facing some hack issue but
                   we're definitely working on it. We'd communicate any
-                  development as soon as possible! Kindly bear with us.{" "}
+                  development as soon as possible! Kindly bear with us.<br/>
+                  <h1 className="text-red-500">Kindly Drop your instagram handle in the message box under the "support" section of your dashboard.</h1>
                 </h1>
                 {/* <div className="text-center mt-6">
                   <button

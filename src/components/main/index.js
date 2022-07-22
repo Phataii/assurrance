@@ -228,14 +228,7 @@ export default function Landing() {
             <h2 className="text-3xl">Kindly drop Us a message</h2>
             <div>
               <form className="px-10">
-                {/* <input
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  type="text"
-                  required
-                  placeholder="Email"
-                  className="border-l-4 text-gray-900 border-blue-600 w-4/5 rounded-md shadow-md p-2 mt-1 mb-3"
-                /> */}
+                
                 <br />
                 <input
                   // value={name}
