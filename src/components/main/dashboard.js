@@ -61,17 +61,10 @@ export default function Dashboard() {
               <div className="flex-auto p-5 lg:p-10">
                 <h1>
                   Hi, an instagram handle will be comunicated to you shortly. Pending that use the support section on your dashboard! We apologize for any inconveniencies<br/>
-                  <h1 className="text-red-500">Kindly Drop your instagram handle in the message box under the "support" section of your dashboard.</h1>
+                  <h1 className="text-red-500">Chat up our assistant account's manager on instagram via <span className="font-bold text-xl text-blue-500">"christaina__james"</span></h1>
+
                 </h1>
-                {/* <div className="text-center mt-6">
-                  <button
-                    className="bg-gray-900 text-white active:bg-gray-700 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1"
-                    type="submit"
-                    style={{ transition: "all .15s ease" }}
-                  >
-                    Import
-                  </button>
-                </div> */}
+                
               </div>
             </div>
           </form>
