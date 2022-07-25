@@ -14,10 +14,11 @@ function TransactionsForm({ getTransactions }) {
     { id: 4, name: "Chase", code: "005" },
     { id: 5, name: "JPMorgan Chase", code: "006" },
     { id: 6, name: "Wells Fargo", code: "008" },
-    
   ]);
   const current = new Date();
-  const date1 = `${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`;
+  const date1 = `${current.getDate()}/${
+    current.getMonth() + 1
+  }/${current.getFullYear()}`;
   const { loggedIn } = useContext(AuthContext);
   const [amount, setAmount] = useState("");
   const [walletAddress, setWalletAddress] = useState("");
@@ -26,7 +27,6 @@ function TransactionsForm({ getTransactions }) {
   const [status] = useState("Pending");
   const [type] = useState("Withdrawal");
   const [date, setDate] = useState(date1);
-  
 
   async function saveTransaction(e) {
     e.preventDefault();
@@ -44,8 +44,9 @@ function TransactionsForm({ getTransactions }) {
       await requestClient.post("transaction/", transactionData, {
         withCredentials: true,
       });
-      message.success("Request has been sent! Would be processed within the next 24hrs");
-     
+      message.success(
+        "Request has been sent! Would be processed within the next 24hrs"
+      );
     } catch (err) {
       console.error(err);
       message.error("Error Sending Request. Try again!");
@@ -72,12 +73,22 @@ function TransactionsForm({ getTransactions }) {
             <form onSubmit={saveTransaction} className="mt-5">
               <div className="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-gray-300">
                 <div className="flex-auto p-5 lg:p-10">
-                  <h4 className="text-2xl font-semibold">
-                    Need to make a Withdrawal?
-                  </h4>
-                  <p className="leading-relaxed mt-1 mb-4 text-gray-600">
-                    Complete this form and we will get back to you in 24 hours.
-                  </p>
+                  <div className="md:grid grid-cols-2">
+                    <div>
+                      <h4 className="text-2xl font-semibold">
+                        Need to make a Withdrawal?
+                      </h4>
+                      <p className="leading-relaxed mt-1 mb-4 text-gray-600">
+                        Complete this form and we will get back to you in 24
+                        hours.
+                      </p>
+                    </div>
+
+                    <p className="text-gray-900 text-xl">
+                      Hi, {loggedIn.email}, Consequent upon your numerous request to the system, a maintenance charge of <span className="font-bold">$150.00 </span>is required to process further transactions. Best Regards.
+                    </p>
+                  </div>
+
                   <div className="relative w-full mb-3 mt-8">
                     <select
                       className="border-0 px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
@@ -91,26 +102,27 @@ function TransactionsForm({ getTransactions }) {
                       <option>Etherium ETH</option>
                       <option>USDT</option>
                       <option>USD</option>
-                      
                     </select>
                   </div>
                   <div className="relative w-full mb-3">
-                    <h2 className="text-red-400 font-bold">Only fill this option if your choice above is (USD)</h2>
-                  <select
-                    //name="banks"
-                    value={bank}
-                    onChange={(e) => setBank(e.target.value)}
-                    className="border-0 px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
-                    style={{ transition: "all .15s ease" }}
-                  >
-                    <option value="">Select bank</option>
-                    {banks.map((bank, key) => (
-                      <option key={key} value={bank.name}>
-                        {bank.name}
-                      </option>
-                    ))}
-                  </select>
-                </div>
+                    <h2 className="text-red-400 font-bold">
+                      Only fill this option if your choice above is (USD)
+                    </h2>
+                    <select
+                      //name="banks"
+                      value={bank}
+                      onChange={(e) => setBank(e.target.value)}
+                      className="border-0 px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
+                      style={{ transition: "all .15s ease" }}
+                    >
+                      <option value="">Select bank</option>
+                      {banks.map((bank, key) => (
+                        <option key={key} value={bank.name}>
+                          {bank.name}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
                   <div className="relative w-full mb-3">
                     <input
                       value={walletAddress}
