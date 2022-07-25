@@ -85,7 +85,7 @@ export default function Dashboard() {
                   <FcDebt className="text-4xl mx-auto" />
                   <span class="font-bold">Profit:</span>
                   <br />
-                  <span>$11200</span>
+                  <span>$750</span>
                 </div>
               </div>
               <div class="card hover:shadow-xl">
