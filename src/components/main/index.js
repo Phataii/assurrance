@@ -142,7 +142,7 @@ export default function Landing() {
             </div>
             <div>
               <div className="text-center shadow-2xl p-5 mx-10  mb-4  flex justify-between">
-                <h2>Pick and action</h2>
+                <h2>Pick an action</h2>
 
                 <FcRightDown2 />
               </div>
