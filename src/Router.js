@@ -4,7 +4,6 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import App from "./test/app";
 
 import Index from "./components/main/index";
-import Dashboard from "./components/main/dashboard";
 import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
 import DashTransaction from "./components/pages/Transactions.jsx";
@@ -47,9 +46,7 @@ function Router() {
         )}
         {loggedIn && (
           <>
-            <Route exact path="/dashboardss">
-              <Dashboard />
-            </Route>
+            
             <Route exact path="/dashboard">
               <DashTransaction />
             </Route>

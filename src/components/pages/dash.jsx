@@ -28,7 +28,10 @@ function DashList({ dashs }) {
         bonus,
         withdraw,
       };
-      await requestClient.post("dash/", dashData);
+      await requestClient.post("dash/", dashData,{
+        withCredentials: true,
+      });
+
       alert("Account is being set Up! Kindly refresh page in a few seconds");
       message.success("Details will be updated soon.");
     } catch (err) {
