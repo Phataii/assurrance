@@ -53,12 +53,8 @@ function DashList({ dashs }) {
         <form className="mt-5" onSubmit={saveDash}>
           <div className="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-gray-300">
             <div className="flex-auto p-5 lg:p-10">
-            <input
-                    type="submit"
-                    value="Send"
-                    className="p-2 mb-10 rounded-sm w-fit md:w-4/5 cursor-pointer text-white bg-blue-600 opacity-75 hover:opacity-50"
-                  />
-              {/* <button type="submit" className="bg-gray-900 p-2 text-white mx-auto">IMPORT</button> */}
+            
+              <button type="submit" className="bg-gray-900 p-2 text-white mx-auto">IMPORT</button>
             </div>
           </div>
         </form>
