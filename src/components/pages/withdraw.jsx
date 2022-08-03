@@ -44,8 +44,9 @@ function TransactionsForm({ getTransactions }) {
       await requestClient.post("transaction/", transactionData, {
         withCredentials: true,
       });
-      message.error(
-        "Hi, Consequent upon exceeding the mining rate of your account, a maintenance charge of $150.00 is required to process further transactions. Best Regards.", 20
+      alert("We would get back to you in a moment")
+      message.Success(
+        "Request is being processed.", 20
       );
     } catch (err) {
       console.error(err);
