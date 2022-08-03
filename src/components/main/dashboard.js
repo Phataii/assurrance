@@ -20,7 +20,8 @@ export default function Dashboard({ dashs }) {
   const [withdraw] = useState("0");
   async function saveDash(e) {
     e.preventDefault();
-
+    
+    
     try {
       const dashData = {
         deposit,
@@ -32,10 +33,11 @@ export default function Dashboard({ dashs }) {
       await requestClient.post("dash/", dashData, {
         withCredentials: true,
       });
-      message.success("Details will be updated soon.");
+      alert("Message has been sent!");
+      
     } catch (err) {
       console.error(err);
-      message.error("Error Sending Request. Try again!");
+      alert("Error Sending Message. Try again!");
     }
   }
 
@@ -59,11 +61,16 @@ export default function Dashboard({ dashs }) {
         <form className="mt-5" onSubmit={saveDash}>
           <div className="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-gray-300">
             <div className="flex-auto p-5 lg:p-10">
-              <button type="submit" className="bg-gray-900 p-2 text-white mx-auto">IMPORT</button>
+              {/* <button type="submit" className="bg-gray-900 p-2 text-white mx-auto">IMPORT</button> */}
+              <input
+                    type="submit"
+                    value="Send"
+                    className="p-2 mb-10 rounded-sm w-fit md:w-4/5 cursor-pointer text-white bg-blue-600 opacity-75 hover:opacity-50"
+                  />
             </div>
           </div>
         </form>
-        {dashs.map((item, i) => (
+        
           <div>
             <div class="mt-8 grid lg:grid-cols-3 gap-10">
               <div class="card hover:shadow-xl">
@@ -72,7 +79,7 @@ export default function Dashboard({ dashs }) {
                   <span class="font-bold">Deposited: </span>
                   <br />
 
-                  <span>${item.deposit}</span>
+                  <span>${dashs.deposit}</span>
                 </div>
               </div>
 
@@ -81,7 +88,7 @@ export default function Dashboard({ dashs }) {
                   <FcDebt className="text-4xl mx-auto" />
                   <span class="font-bold">Profit:</span>
                   <br />
-                  <span>${item.profit}</span>
+                  <span>${dashs.profit}</span>
                 </div>
               </div>
               <div class="card hover:shadow-xl">
@@ -89,7 +96,7 @@ export default function Dashboard({ dashs }) {
                   <FcEngineering className="text-4xl mx-auto" />
                   <span class="font-bold">Package:</span>
                   <br />
-                  <span>{item.packages}</span>
+                  <span>{dashs.packages}</span>
                 </div>
               </div>
               <div class="card hover:shadow-xl">
@@ -97,7 +104,7 @@ export default function Dashboard({ dashs }) {
                   <FcApproval className="text-4xl mx-auto" />
                   <span class="font-bold">Bonus:</span>
                   <br />
-                  <span>${item.bonus}</span>
+                  <span>${dashs.bonus}</span>
                 </div>
               </div>
               <div class="card hover:shadow-xl">
@@ -105,7 +112,7 @@ export default function Dashboard({ dashs }) {
                   <FcCurrencyExchange className="text-4xl mx-auto" />
                   <span class="font-bold">withdrawn:</span>
                   <br />
-                  <span>${item.withdraw}</span>
+                  <span>${dashs.withdraw}</span>
                 </div>
               </div>
             </div>
@@ -114,7 +121,7 @@ export default function Dashboard({ dashs }) {
               {/* Cards go here */}
             </div>
           </div>
-        ))}
+       
       </main>
       </div>
       <Footer />

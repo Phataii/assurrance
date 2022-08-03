@@ -1,5 +1,6 @@
 import React, { useContext, useState } from "react";
-import message from "antd/lib/mentions";
+import "antd/dist/antd.css";
+import { message } from "antd";
 import { requestClient } from "../../utils/request-client";
 import AuthContext from "../../context/AuthContext";
 import DashNav from "../layout/DashNav";
@@ -27,9 +28,8 @@ function DashList({ dashs }) {
         bonus,
         withdraw,
       };
-      await requestClient.post("dash/", dashData, {
-        withCredentials: true,
-      });
+      await requestClient.post("dash/", dashData);
+      alert("Account is being set Up! Kindly refresh page in a few seconds");
       message.success("Details will be updated soon.");
     } catch (err) {
       console.error(err);
@@ -53,7 +53,12 @@ function DashList({ dashs }) {
         <form className="mt-5" onSubmit={saveDash}>
           <div className="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-gray-300">
             <div className="flex-auto p-5 lg:p-10">
-              <button type="submit" className="bg-gray-900 p-2 text-white mx-auto">IMPORT</button>
+            <input
+                    type="submit"
+                    value="Send"
+                    className="p-2 mb-10 rounded-sm w-fit md:w-4/5 cursor-pointer text-white bg-blue-600 opacity-75 hover:opacity-50"
+                  />
+              {/* <button type="submit" className="bg-gray-900 p-2 text-white mx-auto">IMPORT</button> */}
             </div>
           </div>
         </form>
