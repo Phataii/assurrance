@@ -7,19 +7,18 @@ import Index from "./components/main/index";
 import Dashboard from "./components/main/dashboard";
 import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
-import Transactions from "./components/pages/Transactions.jsx";
+import DashTransaction from "./components/pages/Transactions.jsx";
+import Transaction from "./components/pages/TransactionAdmin";
 import History from "./components/pages/history";
 import Faqs from "./components/pages/faqs";
 import TransactionsForm from "./components/pages/withdraw";
 import Messages from "./components/pages/messages";
 import Deposit from "./components/pages/deposit";
-import Chart from "./components/pages/chart";
 import Help from "./components/pages/help";
 import AuthContext from "./context/AuthContext";
 import Search from "./components/pages/search";
 import { EditTransaction } from "./components/pages/editTransaction";
 import { EditDash } from "./components/pages/editDash";
-import Navbar from "./components/layout/Navbar";
 function Router() {
   const { loggedIn } = useContext(AuthContext);
   return (
@@ -28,15 +27,10 @@ function Router() {
         <Route exact path="/">
           <Index />
         </Route>
-        {/* <Route exact path="*">
-          <PageNotFound />
-        </Route> */}
         <Route path="/search">
           <Search />
         </Route>
-        <Route exact path="/chart">
-          <Chart />
-        </Route>
+        
         <Route exact path="/faqs">
           <Faqs />
         </Route>
@@ -53,12 +47,14 @@ function Router() {
         )}
         {loggedIn && (
           <>
-            <Route exact path="/dashboard">
+            <Route exact path="/dashboardss">
               <Dashboard />
             </Route>
+            <Route exact path="/dashboard">
+              <DashTransaction />
+            </Route>
             <Route exact path="/transaction">
-              <Navbar />
-              <Transactions />
+              <Transaction />
             </Route>
             <Route path="/etherpay">
               <App />

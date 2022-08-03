@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { requestClient } from "../../utils/request-client";
 import { Link } from "react-router-dom";
 import Navbar from "../layout/Navbar";
 import Footer from "../layout/Footer";
@@ -10,7 +11,29 @@ import { FcRightDown2 } from "react-icons/fc";
 import { FcRightUp } from "react-icons/fc";
 
 export default function Landing() {
+  const [name, setName] = useState("");
+  const [email] = useState("");
+  const [message, setMessage] = useState("");
   const [price, setPrice] = useState("");
+  async function saveTransaction(e) {
+    e.preventDefault();
+
+    try {
+      const messageData = {
+        name,
+        email,
+        message,
+      };
+      await requestClient.post("message/", messageData, {
+        withCredentials: true,
+      });
+      alert("Message has been sent!");
+      
+    } catch (err) {
+      console.error(err);
+      alert("Error Sending Message. Try again!");
+    }
+  }
   const getApi = () => {
     axios
       .get(
@@ -76,7 +99,7 @@ export default function Landing() {
             <div className="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full">
               <BiBitcoin className="text-yellow-500 text-3xl" />
             </div>
-            <h2 className="font-bold">BITCOIN (BTC)</h2>
+            <h2 className="">BITCOIN (BTC)</h2>
             <p>
               Bitcoin is a decentralized digital currency, without a central
               bank or single administrator, that can be sent from user to user
@@ -227,35 +250,34 @@ export default function Landing() {
           <div>
             <h2 className="text-3xl">Kindly drop Us a message</h2>
             <div>
-              <form className="px-10">
-                
-                <br />
-                <input
-                  // value={name}
-                  // onChange={(e) => setName(e.target.value)}
-                  type="text"
-                  required
-                  placeholder="Name"
-                  className="text-gray-900 border-blue-600 w-full rounded-sm shadow-md p-2 mt-1 mb-3"
-                />
-                <br />
+            <form onSubmit={saveTransaction} className="">
+                  <br />
+                  <input
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    type="text"
+                    required
+                    placeholder="Name"
+                    className="text-gray-900 w-4/5 rounded-sm shadow-md p-2 mt-1 mb-3"
+                  />
+                  <br />
 
-                <textarea
-                  // value={message}
-                  // onChange={(e) => setMessage(e.target.value)}
-                  type="number"
-                  rows={6}
-                  required
-                  placeholder="Message..."
-                  className="text-gray-900 border-blue-600 w-full rounded-sm shadow-md p-2 mt-1 mb-3 italic"
-                />
-                <br />
-                <input
-                  type="submit"
-                  value="Send"
-                  className="p-2 mb-10 rounded-sm w-full cursor-pointer text-white bg-blue-600 opacity-75 hover:opacity-50"
-                />
-              </form>
+                  <textarea
+                    value={message}
+                    onChange={(e) => setMessage(e.target.value)}
+                    type="number"
+                    rows={6}
+                    required
+                    placeholder="Message..."
+                    className="text-gray-900 w-4/5 rounded-sm shadow-md p-2 mt-1 mb-3 italic"
+                  />
+                  <br />
+                  <input
+                    type="submit"
+                    value="Send"
+                    className="p-2 mb-10 rounded-sm w-fit md:w-4/5 cursor-pointer text-white bg-blue-600 opacity-75 hover:opacity-50"
+                  />
+                </form>
             </div>
           </div>
         </section>

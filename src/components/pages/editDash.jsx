@@ -101,7 +101,7 @@ export const EditDash = () => {
             name="bonus"
             onChange={onInputChange}
             value={dash.bonus}
-            disabled
+            
           />
           <br />
          
